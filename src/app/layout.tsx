@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import { Quicksand } from 'next/font/google'
 import './globals.css'
+import Nav from '@/components/Nav'
+import BottomNav from '@/components/BottomNav'
 
 const quicksand = Quicksand({
 	subsets: ['latin', 'latin-ext'],
@@ -25,7 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="vi" className={`${quicksand.variable} h-full`}>
 			<body className="min-h-full flex flex-col font-sans antialiased bg-[#fbf9f3] text-[#1b1c19]">
-				{children}
+				<Nav />
+				<main className="flex-1 md:pt-16 pb-24 md:pb-10">
+					{children}
+				</main>
+				<BottomNav />
 			</body>
 		</html>
 	)

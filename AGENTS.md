@@ -7,3 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Vietnamese content
+
+Before writing any Vietnamese text (words, example sentences, pronunciation notes), read `.claude/steering/VIETNAMESE.md` for dialect and family-specific corrections.
