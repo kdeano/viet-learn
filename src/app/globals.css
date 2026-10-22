@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	/* Vietnamese Joy — warm palette */
+	--bg:              #fbf9f3;
+	--bg-dim:          #f0eee8;
+	--bg-high:         #eae8e2;
+	--fg:              #1b1c19;
+	--fg-muted:        #594139;
+	--outline:         #8d7168;
+	--outline-variant: #e1bfb5;
+	--primary:         #ab3500;
+	--primary-bright:  #ff6b35;
+	--on-primary:      #ffffff;
+	--yellow:          #fdc656;
+	--yellow-dark:     #7b5800;
+	--teal:            #006a62;
+	--teal-bright:     #00ac9f;
+	--on-teal:         #ffffff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	--font-sans: var(--font-quicksand);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	background-color: #fbf9f3;
+	color: #1b1c19;
+	padding-top: env(safe-area-inset-top, 0px);
 }
+
+@media (min-width: 768px) {
+	body { padding-top: 0; }
+}
+
+@layer utilities {
+	.ink-shadow    { box-shadow: 3px 3px 0 #1b1c19; }
+	.ink-shadow-sm { box-shadow: 2px 2px 0 #1b1c19; }
+	.btn-push-orange { box-shadow: 0 3px 0 #7a1e00; }
+	.btn-push-yellow { box-shadow: 0 3px 0 #5d4200; }
+	.btn-push-teal   { box-shadow: 0 3px 0 #003834; }
+}
+
+/* Flashcard flip */
+.perspective { perspective: 1000px; }
+.flip-card { transform-style: preserve-3d; transition: transform 0.4s ease; }
+.flip-card.flipped { transform: rotateY(180deg); }
+.flip-card-front,
+.flip-card-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-card-back { transform: rotateY(180deg); }
+
+/* Tone quiz bounce-in */
+@keyframes pop-in {
+	0%   { transform: scale(0.8); opacity: 0; }
+	60%  { transform: scale(1.05); opacity: 1; }
+	100% { transform: scale(1); }
+}
+.animate-pop-in { animation: pop-in 0.25s ease forwards; }
+
+/* Correct / wrong shake */
+@keyframes shake {
+	0%, 100% { transform: translateX(0); }
+	20%       { transform: translateX(-6px); }
+	40%       { transform: translateX(6px); }
+	60%       { transform: translateX(-4px); }
+	80%       { transform: translateX(4px); }
+}
+.animate-shake { animation: shake 0.35s ease; }
