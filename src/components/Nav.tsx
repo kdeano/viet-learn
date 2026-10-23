@@ -7,6 +7,7 @@ const links = [
 	{ href: '/alphabet', label: 'Alphabet' },
 	{ href: '/tones', label: 'Tones' },
 	{ href: '/flashcards', label: 'Flashcards' },
+	{ href: '/dialogues', label: 'Dialogues' },
 ]
 
 export default function Nav() {
