@@ -1,9 +1,11 @@
 import Link from 'next/link'
+import DashboardStats from '@/components/DashboardStats'
 
 const sections = [
 	{ href: '/alphabet', emoji: '🔤', title: 'Alphabet', desc: 'All 29 letters and clusters, with Northern pronunciation and audio.', color: 'bg-[#70f8e8]/25' },
 	{ href: '/tones', emoji: '🎵', title: 'Tones', desc: 'Learn the 6 tones, then test yourself.', color: 'bg-[#fdc656]/25' },
 	{ href: '/flashcards', emoji: '🗂️', title: 'Flashcards', desc: 'Review vocabulary with spaced repetition.', color: 'bg-[#ff6b35]/15' },
+	{ href: '/dialogues', emoji: '💬', title: 'Dialogues', desc: 'Short conversations to listen and read along.', color: 'bg-[#fdc656]/25' },
 ]
 
 export default function Home() {
@@ -14,7 +16,9 @@ export default function Home() {
 				<p className="text-[#594139] font-semibold">Học Tiếng Việt — one tone at a time</p>
 			</header>
 
-			<div className="grid gap-4 sm:grid-cols-3">
+			<DashboardStats />
+
+			<div className="grid gap-4 grid-cols-2 sm:grid-cols-4">
 				{sections.map(s => (
 					<Link
 						key={s.href}

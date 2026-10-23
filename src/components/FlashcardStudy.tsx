@@ -5,6 +5,7 @@ import type { Deck, FlashcardData } from '@/data/flashcards'
 import type { Rating } from '@/lib/srs'
 import { initialProgress, isDue, review } from '@/lib/srs'
 import { loadProgress, saveProgress, type ProgressMap } from '@/lib/storage'
+import { recordActivity } from '@/lib/activity'
 import SpeakerButton from './SpeakerButton'
 
 export default function FlashcardStudy({ deck }: { deck: Deck }) {
@@ -37,6 +38,7 @@ export default function FlashcardStudy({ deck }: { deck: Deck }) {
 		const next = { ...progress, [card.id]: updated }
 		setProgress(next)
 		saveProgress(next)
+		recordActivity()
 		setReviewedCount(c => c + 1)
 		setIndex(i => i + 1)
 		setFlipped(false)

@@ -1,6 +1,7 @@
 'use client'
 import { useCallback, useState } from 'react'
 import { tones } from '@/data/tones'
+import { recordActivity, recordToneAnswer } from '@/lib/activity'
 
 interface Round {
 	toneId: string
@@ -52,6 +53,8 @@ export default function ToneQuiz() {
 		const correct = toneId === round.toneId
 		setScore(s => ({ correct: s.correct + (correct ? 1 : 0), total: s.total + 1 }))
 		setStreak(s => (correct ? s + 1 : 0))
+		recordActivity()
+		recordToneAnswer(correct)
 	}
 
 	function next() {
