@@ -97,6 +97,24 @@ export const decks: Deck[] = [
 			{ id: 'phr-6', vietnamese: 'đi đâu?', english: 'where are you going?' },
 		],
 	},
+	{
+		id: 'classifiers',
+		title: 'Loại Từ',
+		englishTitle: 'Classifiers',
+		emoji: '📏',
+		cards: [
+			{ id: 'cls-1', vietnamese: 'cái', english: 'classifier for objects', notes: 'cái bàn (table), cái ghế (chair)' },
+			{ id: 'cls-2', vietnamese: 'con', english: 'classifier for animals', notes: 'con chó (dog), con mèo (cat)' },
+			{ id: 'cls-3', vietnamese: 'người', english: 'classifier for people', notes: 'người bạn (a friend)' },
+			{ id: 'cls-4', vietnamese: 'quả', english: 'classifier for round fruit', notes: 'quả cam (orange), quả táo (apple)' },
+			{ id: 'cls-5', vietnamese: 'chiếc', english: 'classifier for vehicles / single items', notes: 'chiếc xe (vehicle), chiếc giày (one shoe)' },
+			{ id: 'cls-6', vietnamese: 'cuốn', english: 'classifier for books', notes: 'cuốn sách (book)' },
+			{ id: 'cls-7', vietnamese: 'tờ', english: 'classifier for flat sheets', notes: 'tờ giấy (sheet of paper), tờ báo (newspaper)' },
+			{ id: 'cls-8', vietnamese: 'đôi', english: 'classifier for pairs', notes: 'đôi giày (pair of shoes)' },
+			{ id: 'cls-9', vietnamese: 'bộ', english: 'classifier for sets', notes: 'bộ quần áo (an outfit)' },
+			{ id: 'cls-10', vietnamese: 'cây', english: 'classifier for long thin objects / trees', notes: 'cây bút (pen), cây (tree)' },
+		],
+	},
 ]
 
 export function findDeck(id: string): Deck | undefined {
