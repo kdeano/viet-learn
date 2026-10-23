@@ -14,7 +14,7 @@ export default function LetterCard({ letter, accent }: { letter: Letter; accent:
 				<span className={`text-2xl font-black text-[#1b1c19] rounded-lg px-2 py-0.5 ${accentBg[accent]}`}>
 					{letter.letter}
 				</span>
-				<SpeakerButton text={letter.letter} className="shrink-0 -mt-1 -mr-1" />
+				<SpeakerButton text={letter.ttsText ?? letter.letter} className="shrink-0 -mt-1 -mr-1" />
 			</div>
 
 			<p className="text-[11px] text-[#594139] font-semibold leading-tight">{letter.sound}</p>

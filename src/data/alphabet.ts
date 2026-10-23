@@ -6,6 +6,12 @@ export interface Letter {
 	sound: string      // plain-English description of how it sounds, Northern dialect
 	example: string
 	exampleMeaning: string
+	// What to send to TTS for the "letter" button. Vowels are naturally
+	// pronounceable alone, so this is only set for consonants/clusters —
+	// a bare consonant like "d" is ambiguous to TTS, so we use its spoken
+	// "đánh vần" name instead (e.g. "dờ"), same convention Vietnamese
+	// literacy teaching uses since consonants can't stand alone anyway.
+	ttsText?: string
 }
 
 export interface LetterGroup {
@@ -43,23 +49,23 @@ export const alphabetGroups: LetterGroup[] = [
 		subtitle: 'Single consonants',
 		accent: 'yellow',
 		letters: [
-			{ letter: 'b', sound: 'like English "b"', example: 'bà', exampleMeaning: 'grandma' },
-			{ letter: 'c', sound: 'like English "k" (hard)', example: 'cá', exampleMeaning: 'fish' },
-			{ letter: 'd', sound: 'Northern: like English "z" — not like English "d"', example: 'da', exampleMeaning: 'skin' },
-			{ letter: 'đ', sound: 'like English "d"', example: 'đỏ', exampleMeaning: 'red' },
-			{ letter: 'g', sound: 'like English "g" (hard)', example: 'gà', exampleMeaning: 'chicken' },
-			{ letter: 'h', sound: 'like English "h"', example: 'hoa', exampleMeaning: 'flower' },
-			{ letter: 'k', sound: 'like English "k" (used before e/ê/i)', example: 'kem', exampleMeaning: 'ice cream' },
-			{ letter: 'l', sound: 'like English "l"', example: 'lá', exampleMeaning: 'leaf' },
-			{ letter: 'm', sound: 'like English "m"', example: 'mẹ', exampleMeaning: 'mother' },
-			{ letter: 'n', sound: 'like English "n"', example: 'nước', exampleMeaning: 'water' },
-			{ letter: 'p', sound: 'like English "p"', example: 'pin', exampleMeaning: 'battery' },
-			{ letter: 'q', sound: 'always paired with "u" — "kw" sound', example: 'quả', exampleMeaning: 'fruit' },
-			{ letter: 'r', sound: 'Northern: like English "z" — same as "d"', example: 'ra', exampleMeaning: 'to go out' },
-			{ letter: 's', sound: 'Northern: like English "s" — same as "x"', example: 'sữa', exampleMeaning: 'milk' },
-			{ letter: 't', sound: 'like English "t" but unaspirated (no puff of air)', example: 'tay', exampleMeaning: 'hand' },
-			{ letter: 'v', sound: 'like English "v"', example: 'vui', exampleMeaning: 'happy' },
-			{ letter: 'x', sound: 'like English "s"', example: 'xe', exampleMeaning: 'vehicle' },
+			{ letter: 'b', sound: 'like English "b"', example: 'bà', exampleMeaning: 'grandma', ttsText: 'bờ' },
+			{ letter: 'c', sound: 'like English "k" (hard)', example: 'cá', exampleMeaning: 'fish', ttsText: 'cờ' },
+			{ letter: 'd', sound: 'Northern: like English "z" — not like English "d"', example: 'da', exampleMeaning: 'skin', ttsText: 'dờ' },
+			{ letter: 'đ', sound: 'like English "d"', example: 'đỏ', exampleMeaning: 'red', ttsText: 'đờ' },
+			{ letter: 'g', sound: 'like English "g" (hard)', example: 'gà', exampleMeaning: 'chicken', ttsText: 'gờ' },
+			{ letter: 'h', sound: 'like English "h"', example: 'hoa', exampleMeaning: 'flower', ttsText: 'hờ' },
+			{ letter: 'k', sound: 'like English "k" (used before e/ê/i)', example: 'kem', exampleMeaning: 'ice cream', ttsText: 'ca' },
+			{ letter: 'l', sound: 'like English "l"', example: 'lá', exampleMeaning: 'leaf', ttsText: 'lờ' },
+			{ letter: 'm', sound: 'like English "m"', example: 'mẹ', exampleMeaning: 'mother', ttsText: 'mờ' },
+			{ letter: 'n', sound: 'like English "n"', example: 'nước', exampleMeaning: 'water', ttsText: 'nờ' },
+			{ letter: 'p', sound: 'like English "p"', example: 'pin', exampleMeaning: 'battery', ttsText: 'pờ' },
+			{ letter: 'q', sound: 'always paired with "u" — "kw" sound', example: 'quả', exampleMeaning: 'fruit', ttsText: 'quờ' },
+			{ letter: 'r', sound: 'Northern: like English "z" — same as "d"', example: 'ra', exampleMeaning: 'to go out', ttsText: 'rờ' },
+			{ letter: 's', sound: 'Northern: like English "s" — same as "x"', example: 'sữa', exampleMeaning: 'milk', ttsText: 'sờ' },
+			{ letter: 't', sound: 'like English "t" but unaspirated (no puff of air)', example: 'tay', exampleMeaning: 'hand', ttsText: 'tờ' },
+			{ letter: 'v', sound: 'like English "v"', example: 'vui', exampleMeaning: 'happy', ttsText: 'vờ' },
+			{ letter: 'x', sound: 'like English "s"', example: 'xe', exampleMeaning: 'vehicle', ttsText: 'xờ' },
 		],
 	},
 	{
@@ -68,17 +74,17 @@ export const alphabetGroups: LetterGroup[] = [
 		subtitle: 'Consonant clusters',
 		accent: 'orange',
 		letters: [
-			{ letter: 'ch', sound: 'like "ch" in "church", softer/unaspirated', example: 'chó', exampleMeaning: 'dog' },
-			{ letter: 'gh', sound: 'same hard "g" sound, used before e/ê/i', example: 'ghế', exampleMeaning: 'chair' },
-			{ letter: 'gi', sound: 'Northern: like English "z" — same as "d"', example: 'giày', exampleMeaning: 'shoes' },
-			{ letter: 'kh', sound: 'throaty "k", like Scottish "loch"', example: 'không', exampleMeaning: 'no / zero' },
-			{ letter: 'ng', sound: 'like "ng" in "singer" — can start a word', example: 'ngon', exampleMeaning: 'delicious' },
-			{ letter: 'ngh', sound: 'same as "ng", used before e/ê/i', example: 'nghe', exampleMeaning: 'to listen' },
-			{ letter: 'nh', sound: 'like "ny" in "canyon"', example: 'nhà', exampleMeaning: 'house' },
-			{ letter: 'ph', sound: 'like English "f"', example: 'phở', exampleMeaning: 'pho (noodle soup)' },
-			{ letter: 'qu', sound: 'like "kw" in "quick"', example: 'quê', exampleMeaning: 'hometown' },
-			{ letter: 'th', sound: 'like "t" in English "top", aspirated', example: 'thích', exampleMeaning: 'to like' },
-			{ letter: 'tr', sound: 'Northern: merges with "ch" — like "ch" in "church"', example: 'trà', exampleMeaning: 'tea' },
+			{ letter: 'ch', sound: 'like "ch" in "church", softer/unaspirated', example: 'chó', exampleMeaning: 'dog', ttsText: 'chờ' },
+			{ letter: 'gh', sound: 'same hard "g" sound, used before e/ê/i', example: 'ghế', exampleMeaning: 'chair', ttsText: 'ghờ' },
+			{ letter: 'gi', sound: 'Northern: like English "z" — same as "d"', example: 'giày', exampleMeaning: 'shoes', ttsText: 'giờ' },
+			{ letter: 'kh', sound: 'throaty "k", like Scottish "loch"', example: 'không', exampleMeaning: 'no / zero', ttsText: 'khờ' },
+			{ letter: 'ng', sound: 'like "ng" in "singer" — can start a word', example: 'ngon', exampleMeaning: 'delicious', ttsText: 'ngờ' },
+			{ letter: 'ngh', sound: 'same as "ng", used before e/ê/i', example: 'nghe', exampleMeaning: 'to listen', ttsText: 'ngờ' },
+			{ letter: 'nh', sound: 'like "ny" in "canyon"', example: 'nhà', exampleMeaning: 'house', ttsText: 'nhờ' },
+			{ letter: 'ph', sound: 'like English "f"', example: 'phở', exampleMeaning: 'pho (noodle soup)', ttsText: 'phờ' },
+			{ letter: 'qu', sound: 'like "kw" in "quick"', example: 'quê', exampleMeaning: 'hometown', ttsText: 'quờ' },
+			{ letter: 'th', sound: 'like "t" in English "top", aspirated', example: 'thích', exampleMeaning: 'to like', ttsText: 'thờ' },
+			{ letter: 'tr', sound: 'Northern: merges with "ch" — like "ch" in "church"', example: 'trà', exampleMeaning: 'tea', ttsText: 'trờ' },
 		],
 	},
 ]
