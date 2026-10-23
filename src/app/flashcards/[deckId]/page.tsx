@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { findDeck } from '@/data/flashcards'
-import FlashcardStudy from '@/components/FlashcardStudy'
+import DeckStudyShell from '@/components/DeckStudyShell'
 
 // Deck pages are inherently per-request (params pick the deck) — allow blocking
 // rather than forcing an artificial Suspense split around params.
@@ -25,7 +25,7 @@ export default async function DeckStudyPage(props: PageProps<'/flashcards/[deckI
 				<p className="text-[#8d7168] font-semibold text-sm">{deck.englishTitle}</p>
 			</header>
 
-			<FlashcardStudy deck={deck} />
+			<DeckStudyShell deck={deck} />
 		</div>
 	)
 }
